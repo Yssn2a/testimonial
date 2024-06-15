@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Charts Table with Image Previews</title>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<style>
+  /* Optional: Add some basic styling */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold; /* Make text bold */ /* Adjust font size for table cells */
+  }
+  th {
+    background-color: #f2f2f2;
+    font-size: 18px; /* Adjust font size for table headers */
+  }
+  img {
+    max-width: 320px; /* Adjust the max-width of images */
+    max-height: 320px; /* Adjust the max-height of images */
+    display: block; /* Ensure images do not overflow table cells */
+    margin: 0 auto; /* Center images horizontally */
+  }
+</style>
+</head>
+<body>
+
+<div id="chart_div"></div>
+<a style="font-size:12px;color:#BDBDBD" href="https://livechatai.com/">Powered by LiveChatAI</a>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['table']});
+  google.charts.setOnLoadCallback(drawTable);
+
+  function drawTable() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Names');
+    data.addColumn('number', 'IDs');
+    data.addColumn('boolean', 'Premium');
+    data.addColumn('string', 'Image Preview');
+
+    var rows = [
+      ["Dreamshaper V8", 174, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/283cb354-d527-4d1c-b679-16e636779fb9.png">'],
+      ["Realistic Vision V5.1", 173, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/793a0e31-845e-4873-8223-7e516261bdca.png">'],
+      ["Dark Sushi Mix", 25, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/267e26c7-e8ca-4bd5-9d08-579997b2686a.png">'],
+      ["Mistoon Anime", 26, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/3547e199-3531-4f99-a23c-5ae8872cb18e.png">'],
+      ["Analog Madness", 24, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/4000ce24-8500-46c9-8b84-6ab658bb9e3a.png">'],
+      ["526MixV1.4", 23, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/f02720f5-46cf-4e4d-bb3a-fb8d59098ae9.png">'],
+      ["RPG", 37, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/0813e29b-11a7-439c-bec5-b5608f413fc4.png">'],
+      ["Clarity", 38, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/271b04b7-8a66-4124-9a92-eeff2e046557.png">'],
+      ["Experience", 66, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/9cce8ead-bf6c-491c-a0f7-ed5c370e282a.png">'],
+      ["Stylejourney", 43, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/0997d4c0-e5ad-45cc-969e-285a004a7f47.png">'],
+      ["Never Ending Dream(NED)", 59, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/b2af7eb0-597b-4794-8a2a-58f4df30b78e.png">'],
+      ["Samaritan 3d Cartoon", 93, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/2adeeb6a-c6cd-41e4-a371-488959d9fe22.png">'],
+      ["Cheese Daddy's Landscapes mix", 74, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/9c589155-14fe-4ade-b21d-6ff40b32aea2.png">'],
+      ["epicRealism", 73, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/a1a07e9b-2b5a-418b-be75-2bd1d597f8aa.png">'],
+      ["ICBINP (I cannot believe it's not photography)", 72, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/115e351d-4bec-4d0a-87f3-d59b2e5c15f5.png">'],
+      ["Dreamshaper", 20, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/b477cd1b-afca-4d2b-8d05-c56dae544cd9.png">'],
+      ["AbsoluteReality", 88, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/5e07bc34-9393-4a0f-90a4-e88e1bb94914.png">'],
+      ["Disney Pixar Cartoon Type A", 91, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/428156a7-053b-4c1d-b3c1-e9fc2ba60254.png">'],
+      ["Anime Pastel Dream", 77, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/f6ba9f9b-f9bb-4e31-bb65-31c3ff9155c4.png">'],
+      ["FantasticMix", 76, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/9e53731a-0c10-4cb5-81bb-3480056ba08e.png">'],
+      ["Game Icon Institute_mode", 75, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/41f8a53b-6531-4354-bdc6-b311f643c29a.png">'],
+      ["Realistic Vision V4 - Inpainting", 108, true, 'None'],
+      ["Realistic Vision V3 - Inpainting", 102, true, 'None'],
+      ["Realistic Vision V3", 101, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/9c08ff9b-7e01-4e6f-a6ed-ae7953cf8e6d.png">'],
+      ["Henmix Real", 97, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/9787bf91-890e-471c-bf38-bcfa9f93f1a5.png">'],
+      ["XSarchitecturalV3Commercialbuildingrendering", 104, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/9763e14e-f6de-4f15-8b5d-e996f9b7e8a3.png">'],
+      ["XSMerge-RealisticVisionV3-ForArchitectural", 105, true, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/ded6cbac-33e9-44bb-9e55-1d46a34cec78.png">'],
+      ["Realistic Vision V4", 107, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/8d87f480-4a16-496b-be80-818125e6ee50.png">'],
+      ["Realistic Vision V2.0", 17, false, '<img src="https://serve-model-sd-outputs.s3.amazonaws.com/cb48753e-c81d-4f01-abca-33f072161c7a.png">']
+    ];
+
+    data.addRows(rows);
+
+    var table = new google.visualization.Table(document.getElementById('chart_div'));
+
+    table.draw(data, {
+      showRowNumber: true,
+      width: '100%',
+      height: '100%',
+      allowHtml: true // Allows HTML content within cells
+    });
+  }
+</script>
+
+</body>
+</html>
